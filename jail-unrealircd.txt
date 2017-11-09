@@ -1,0 +1,13 @@
+# This script works just with UnrealIRCd
+# 
+# This script will ban and make a user part from a channel and it will make it autojoin another one like #Jail
+#
+# Commands: .jail <nick>
+
+on *:INPUT:#:{
+  if ($1 == .jail) { 
+    .ban $chan $2
+    .sapart $2 $chan
+    .msg $2 You didn't respect the rules of # , you will be redirected to #Jail
+  }
+}
