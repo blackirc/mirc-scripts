@@ -1,0 +1,16 @@
+# This script works just with srvx IRC Services and needs RAW comand enabled and level 1000 access to OpServ!
+# 
+# This script will kickban a user from a channel and it will make it autojoin (by raw)  another one like #Jail
+#
+# Commands: .jail <nick>
+
+on *:INPUT:#:{
+  if ($1 == .jail) { 
+    .msg OpServ whois $2
+    .ban $chan $2
+    .kick $chan $2 You didn't respect the rules of # , you will be redirected to #Jail
+  }
+}
+ON *:NOTICE:*:*:{
+  if ($1 == Numnick) { /msg OpServ raw AC sj $3 #Jail }
+}
