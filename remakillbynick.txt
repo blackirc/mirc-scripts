@@ -1,0 +1,23 @@
+# This script will work just with Anope IRC Services
+# Remove akill by nick
+# Commands: .rem <nick>
+
+# This scripts works only if you have set up akills by using our akill aliases:
+#
+# /akill /msg operserv akill add +1 $$1 $$1 <Your default reason for the akill>
+#
+# /bot /msg operserv akill add +0 $$1 $$1 <Your default reason for the akill>
+
+
+on *:INPUT:#:{
+if ($$1 == .rem) {
+    .msg operserv akill list
+    .set %remakill $$2
+  }
+}
+on *:NOTICE:*:*:{
+  if ($4 == %remakill) {
+    .msg operserv akill del $1
+    .unset %remakill
+  }
+} 
