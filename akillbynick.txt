@@ -1,0 +1,16 @@
+# Akill by nick alias created for Anope IRC Services
+# by ApropoCHAT.ro Team
+#
+# To load this alias, go to your mIRC installation directory and edit aliases.ini.
+# Add the following lines at the end of the file.
+#
+# How to use:
+# /akill <nick> - This will akill the user for one day
+# /bot <nick> - This will issue a permanent akill (Useful for clone/drone/bot attacks)
+#
+# Don't forget to change the default reason for akills.
+
+
+
+/akill /msg operserv akill add +1 $$1 <your default reason here>
+/bot /msg operserv akill add +0 $$1 <your default reason here>
